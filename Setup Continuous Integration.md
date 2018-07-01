@@ -15,7 +15,8 @@ Use [XCTestTemp](https://github.com/robenkleene/XCTestTemp/tree/master) as the r
 2. Copy over the `.travis.yml` file from the reference repository.
 3. Copy over the `Makefile` from the reference repository.
 	* You'll need to update the `SCHEME` in the `Makefile`.
-	* If the target doesn't have tests, remove `test` from the `ci` job.
+	* If the target doesn't have tests, replace `test` with `build` in the `ci` job, like in [robenkleene/StringPlusPath](https://github.com/robenkleene/StringPlusPath/tree/master)
+	* If your target has [Carthage](https://github.com/Carthage/Carthage) dependencies, add a `bootstrap` step, like in [robenkleene/BubbleUp](https://github.com/robenkleene/BubbleUp)
 4. Copy over the `.swiftlint.yml` from the reference repository.
 5. Checkout a new branch and commit those changes to it, after the continuous integration job runs on Travis, make the `master` branch on GitHub a protected branch that requires continuous integration to pass by copying the reference repository.
 6. Add the build sticker to the `README.md` by copying from the reference repository (make sure to update the URL of the sticker).
