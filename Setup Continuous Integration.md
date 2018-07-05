@@ -7,7 +7,11 @@
 3. Linting should run for each build
 4. Via protected branches, merges should not be allowed on `master` unless the build passes continuous integration.
 
-## Instructions
+## Script Instructions
+
+Use the `setup_xcode.sh` script at [thepotionlab/Scripts](https://github.com/thepotionlab/Scripts/). This performs the same steps as 2-4 of the "Manual Instructions".
+
+## Manual Instructions
 
 Use [XCTestTemp](https://github.com/robenkleene/XCTestTemp/tree/master) as the reference repository.
 
