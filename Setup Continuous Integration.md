@@ -36,4 +36,8 @@ Use [XCTestTemp](https://github.com/robenkleene/XCTestTemp/tree/master) as the r
 3. Run `make lint` and fix any errors.
 4. Run `make ci` and make sure it works.
 
+### Setup Carthage Builds
 
+1. Following [the steps](https://github.com/Carthage/Carthage#use-travis-ci-to-upload-your-tagged-prebuilt-frameworks) for setting up Carthage with Travis
+2. Add my `GITHUB_ACCESS_TOKEN`
+	* One of the links below includes this `travis encrypt GITHUB_ACCESS_TOKEN=YOUR_ACCESS_TOKEN --add env.global` [example](https://github.com/Wolox/ReactiveArray/blob/master/.travis.yml)
