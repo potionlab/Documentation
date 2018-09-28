@@ -2,10 +2,10 @@
 
 ## Goals
 
-1. Setup continuous integration on [Travis CI](https://travis-ci.org/)
-2. Tests should run for each build
-3. Linting should run for each build
-4. Via protected branches, merges should not be allowed on `master` unless the build passes continuous integration.
+1. Continuous integration should run on [Travis CI](https://travis-ci.org/).
+2. Tests should run for each build.
+3. Lint should run for each build.
+4. [Required status checks](https://help.github.com/articles/about-required-status-checks/) and [protected branches](https://help.github.com/articles/about-protected-branches/) should prevent merging into `master` unless the build passes continuous integration.
 
 ## Script Instructions
 
