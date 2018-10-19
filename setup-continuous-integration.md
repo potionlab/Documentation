@@ -2,10 +2,12 @@
 
 ## Goals
 
-1. Continuous integration should run on [Travis CI](https://travis-ci.org/).
-2. Tests should run for each build.
-3. Lint should run for each build.
-4. [Required status checks](https://help.github.com/articles/about-required-status-checks/) and [protected branches](https://help.github.com/articles/about-protected-branches/) should prevent merging into `master` unless the build passes continuous integration.
+1. Continuous integration should run on [Travis CI](https://travis-ci.org/)
+2. Tests should run for each build
+3. Lint should run for each build
+4. [Required status checks](https://help.github.com/articles/about-required-status-checks/) and [protected branches](https://help.github.com/articles/about-protected-branches/) should prevent merging into `master` unless the build passes continuous integration
+5. A GitHub Access Token is provided to download Carthage binaries (this gets rate limited on Travis otherwise)
+6. On Travis, to conserve resources we should only build pull requests, the `master` branch, and tags. The only reason we build `master` is that there is no way to build pull requests without also building `master`.
 
 ## Script Instructions
 
@@ -36,8 +38,17 @@ Use [XCTestTemp](https://github.com/robenkleene/XCTestTemp/tree/master) as the r
 3. Run `make lint` and fix any errors.
 4. Run `make ci` and make sure it works.
 
-### Setup Carthage Builds
+### Setup Carthage Deployments
 
-1. Following [the steps](https://github.com/Carthage/Carthage#use-travis-ci-to-upload-your-tagged-prebuilt-frameworks) for setting up Carthage with Travis
-2. Add my `GITHUB_ACCESS_TOKEN`
-	* One of the links below includes this `travis encrypt GITHUB_ACCESS_TOKEN=YOUR_ACCESS_TOKEN --add env.global` [example](https://github.com/Wolox/ReactiveArray/blob/master/.travis.yml)
+Binaries are much faster so we should use them over compiling in continuous integration steps.
+
+#### Create Binaries for New Tags
+
+Following [the steps](https://github.com/Carthage/Carthage#use-travis-ci-to-upload-your-tagged-prebuilt-frameworks) for setting up Carthage with Travis
+
+#### Getting Around Rate Limiting
+
+GitHub will prevent Travis from downloading binaries because of rate limiting. To get around this, we need to provide a `GITHUB_ACCESS_TOKEN`. Note that we should *only provide a GitHub access token to repositories that have Carthage dependencies!*
+
+1. Make a GitHub access token under settings, developer settings, personal access tokens. You do need need to add any special access rights.
+2. Add the personal access token to the `.travis.yml` file with `travis encrypt GITHUB_ACCESS_TOKEN=YOUR_ACCESS_TOKEN --add env.global`
