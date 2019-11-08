@@ -11,7 +11,7 @@
 
 ## Script Instructions
 
-Use the `setup_xcode.sh` script at [thepotionlab/Scripts](https://github.com/thepotionlab/Scripts/). This performs the same steps as "Add Continuous Integration Files" in the "Manual Instructions".
+Use the `setup_xcode.sh` script at [repla-app/Scripts](https://github.com/thepotionlab/Scripts/). This performs the same steps as "Add Continuous Integration Files" in the "Manual Instructions".
 
 ## Manual Instructions
 
